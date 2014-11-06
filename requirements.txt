@@ -10,3 +10,4 @@ hyde==0.8.8
 smartypants==1.7.1
 typogrify==2.0.0
 wsgiref==0.1.2
+gitpython==0.3.2.RC1

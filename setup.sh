@@ -11,7 +11,7 @@ vitrualenv env
 source env/bin/activate
 pip install -r -U requirements.txt
 
-git clone git://github.com/gitpython-developers/GitPython.git git-python
-cd git-python
-git submodule update --init --recursive
-python setup.py install
+#git clone git://github.com/gitpython-developers/GitPython.git git-python
+#cd git-python
+#git submodule update --init --recursive
+#python setup.py install
