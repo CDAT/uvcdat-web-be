@@ -9,6 +9,6 @@ following apps
 * uvcdat-site
 
 ####getting up and running
-    git clone --recursive git://github.com/UV-CDAT/uvcdat-web-be.git
-    ./setup.sh    
-
+    git clone git://github.com/UV-CDAT/uvcdat-web-be.git
+    cd uvcdat-web-be    
+    ./setup.sh
