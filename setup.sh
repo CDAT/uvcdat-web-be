@@ -9,4 +9,5 @@ virtualenv env
 source env/bin/activate
 pip install -r requirements.txt
 cd web-be
+echo "This can take a while... Sorry"
 python manage.py gitupdate
