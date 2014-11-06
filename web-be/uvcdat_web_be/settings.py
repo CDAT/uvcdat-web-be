@@ -81,4 +81,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
 HYDE_APPS = ("h1",)
+STATIC_ROOT = "/tmp/static"
+STATICFILES_FINDERS = (
+		"uvcdat_web_be.hyde_finder.HydeFinder",
+)
