@@ -4,7 +4,7 @@
 
 python -c 'import sys; print(sys.version_info[:])'
 
-pip install virtualenv
+sudo pip install virtualenv
 vitrualenv env
 source env/bin/activate
 pip install -r -U requirements.txt
