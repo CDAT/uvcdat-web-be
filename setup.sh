@@ -5,8 +5,8 @@
 python -c 'import sys; print(sys.version_info[:])'
 
 sudo pip install virtualenv
-vitrualenv env
+virtualenv env
 source env/bin/activate
-pip install -r -U requirements.txt
+pip install -r requirements.txt
 cd web-be
 python manage.py gitupdate
