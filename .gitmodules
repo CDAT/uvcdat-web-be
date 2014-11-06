@@ -1,0 +1,3 @@
+[submodule "web-be/uvcdat-site"]
+	path = web-be/uvcdat-site
+	url = https://github.com/UV-CDAT/uvcdat-site
