@@ -7,3 +7,12 @@ following apps
 * usage
 * docs
 * uvcdat-site
+
+####getting up and running
+    git clone git://github.com/UV-CDAT/uvcdat-web-be.git
+    pip install virtualenv
+    vitrualenv env
+    source env/bin/activate
+    pip install -r -U requirements.txt
+    
+
