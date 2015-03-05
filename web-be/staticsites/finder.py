@@ -11,7 +11,7 @@ import shutil
 import re
 import yaml
 from jinja2 import Environment, PackageLoader
-from jinjaext import markdown, media_url
+from jinjaext import markdown, media_url, full_url
 
 class StaticSiteFinder(BaseFinder):
     """
@@ -62,7 +62,8 @@ class StaticSiteFinder(BaseFinder):
     def build_site(self, app, path):
         env = Environment(loader=PackageLoader(app, 'templates'))
         env.filters["markdown"] = markdown
-        env.filters["media_url"] = media_url(app)
+        env.globals["media_url"] = media_url(app)
+        env.globals["full_url"] = full_url(app)
 
         target = os.path.join(path, "staticsite")
         # Clear everything in staticsite
@@ -70,7 +71,14 @@ class StaticSiteFinder(BaseFinder):
           shutil.rmtree(target)
         os.mkdir(target)
 
+        target = os.path.join(target, app)
+        os.mkdir(target)
+
+
         content_path = os.path.join(path, "static-content") 
+        site = {
+          "static_url": settings.STATIC_URL
+        }
 
         for dirpath, dirnames, filenames in os.walk(content_path):
           if dirpath == os.path.join(content_path, "media"):
@@ -101,7 +109,8 @@ class StaticSiteFinder(BaseFinder):
               variables = {
                 "resource":{
                   "meta":frontmatter
-                }
+                },
+                "site": site
               }
 
               lines = []
@@ -111,3 +120,4 @@ class StaticSiteFinder(BaseFinder):
               t = env.from_string(text)
               with open(outpath, "w") as outfile:
                 outfile.write(t.render(**variables))
+

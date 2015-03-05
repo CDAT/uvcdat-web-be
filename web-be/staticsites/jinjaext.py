@@ -5,10 +5,15 @@ __markdown_flags__ = misaka.EXT_NO_INTRA_EMPHASIS | misaka.EXT_TABLES | misaka.E
 def markdown(string):
   return misaka.html(string, extensions = __markdown_flags__)
 
-
 from django.conf import settings
 import os.path
 def media_url(app):
   def f(string):
-    return os.path.join(settings.STATIC_URL, app, "media")
+    return os.path.join(settings.STATIC_URL, app, string)
+
+  return f
+
+def full_url(app):
+  def f(string):
+    return os.path.join("/", app, string)
   return f
