@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'uvcdat-site',
+    'staticsites',
     'uvcdat_web_be',
 )
 
@@ -87,5 +89,9 @@ STATIC_ROOT = "/tmp/static"
 STATICFILES_FINDERS = (
 		"django.contrib.staticfiles.finders.FileSystemFinder",
 		"django.contrib.staticfiles.finders.AppDirectoriesFinder",
-		"uvcdat_web_be.hyde_finder.HydeFinder",
+        "staticsites.StaticSiteFinder",
+)
+
+STATIC_APPS = (
+    "uvcdat-site",
 )
